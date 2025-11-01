@@ -330,66 +330,66 @@ sfr at 0x84 DPL1;
 sfr at 0x85 DPH1;
 sfr at 0x86 DPS;
          /*  DPS  */
-         sbit at 0x86+0 SEL;
+         sbit at (0x86+0) SEL;
 sfr at 0x87 PCON;   /*  PCON  */
-         //sbit IDLE   = 0x87+0;
-         //sbit STOP   = 0x87+1;
-         //sbit GF0    = 0x87+2;
-         //sbit GF1    = 0x87+3;
-         //sbit SMOD0  = 0x87+7;
+         //sbit IDLE   = (0x87+0);
+         //sbit STOP   = (0x87+1);
+         //sbit GF0    = (0x87+2);
+         //sbit GF1    = (0x87+3);
+         //sbit SMOD0  = (0x87+7);
 sfr at 0x88 TCON;
          /*  TCON  */
-         sbit at 0x88+0 IT0;
-         sbit at 0x88+1 IE0;
-         sbit at 0x88+2 IT1;
-         sbit at 0x88+3 IE1;
-         sbit at 0x88+4 TR0;
-         sbit at 0x88+5 TF0;
-         sbit at 0x88+6 TR1;
-         sbit at 0x88+7 TF1;
+         sbit at (0x88+0) IT0;
+         sbit at (0x88+1) IE0;
+         sbit at (0x88+2) IT1;
+         sbit at (0x88+3) IE1;
+         sbit at (0x88+4) TR0;
+         sbit at (0x88+5) TF0;
+         sbit at (0x88+6) TR1;
+         sbit at (0x88+7) TF1;
 sfr at 0x89 TMOD;
          /*  TMOD  */
-         //sbit M00    = 0x89+0;
-         //sbit M10    = 0x89+1;
-         //sbit CT0    = 0x89+2;
-         //sbit GATE0  = 0x89+3;
-         //sbit M01    = 0x89+4;
-         //sbit M11    = 0x89+5;
-         //sbit CT1    = 0x89+6;
-         //sbit GATE1  = 0x89+7;
+         //sbit M00    = (0x89+0);
+         //sbit M10    = (0x89+1);
+         //sbit CT0    = (0x89+2);
+         //sbit GATE0  = (0x89+3);
+         //sbit M01    = (0x89+4);
+         //sbit M11    = (0x89+5);
+         //sbit CT1    = (0x89+6);
+         //sbit GATE1  = (0x89+7);
 sfr at 0x8A TL0;
 sfr at 0x8B TL1;
 sfr at 0x8C TH0;
 sfr at 0x8D TH1;
 sfr at 0x8E CKCON;
          /*  CKCON  */
-         //sbit MD0    = 0x89+0;
-         //sbit MD1    = 0x89+1;
-         //sbit MD2    = 0x89+2;
-         //sbit T0M    = 0x89+3;
-         //sbit T1M    = 0x89+4;
-         //sbit T2M    = 0x89+5;
+         //sbit MD0    = (0x89+0);
+         //sbit MD1    = (0x89+1);
+         //sbit MD2    = (0x89+2);
+         //sbit T0M    = (0x89+3);
+         //sbit T1M    = (0x89+4);
+         //sbit T2M    = (0x89+5);
 // sfr at 0x8F SPC_FNC; // Was WRS in Reg320
          /*  CKCON  */
          //sbit WRS    = 0x8F+0;
 sfr at 0x90 IOB;
 sfr at 0x91 EXIF; // EXIF Bit Values differ from Reg320
          /*  EXIF  */
-         //sbit USBINT = 0x91+4;
-         //sbit I2CINT = 0x91+5;
-         //sbit IE4    = 0x91+6;
-         //sbit IE5    = 0x91+7;
+         //sbit USBINT = (0x91+4);
+         //sbit I2CINT = (0x91+5);
+         //sbit IE4    = (0x91+6);
+         //sbit IE5    = (0x91+7);
 sfr at 0x92 MPAGE;
 sfr at 0x98 SCON0;
          /*  SCON0  */
-         sbit at 0x98+0 RI;
-         sbit at 0x98+1 TI;
-         sbit at 0x98+2 RB8;
-         sbit at 0x98+3 TB8;
-         sbit at 0x98+4 REN;
-         sbit at 0x98+5 SM2;
-         sbit at 0x98+6 SM1;
-         sbit at 0x98+7 SM0;
+         sbit at (0x98+0) RI;
+         sbit at (0x98+1) TI;
+         sbit at (0x98+2) RB8;
+         sbit at (0x98+3) TB8;
+         sbit at (0x98+4) REN;
+         sbit at (0x98+5) SM2;
+         sbit at (0x98+6) SM1;
+         sbit at (0x98+7) SM0;
 sfr at 0x99 SBUF0;
 
 sfr at 0x9A APTR1H;
@@ -407,33 +407,33 @@ sfr at 0xA2 INT4CLR;
 
 sfr at 0xA8 IE;
          /*  IE  */
-         sbit at 0xA8+0 EX0;
-         sbit at 0xA8+1 ET0;
-         sbit at 0xA8+2 EX1;
-         sbit at 0xA8+3 ET1;
-         sbit at 0xA8+4 ES0;
-         sbit at 0xA8+5 ET2;
-         sbit at 0xA8+6 ES1;
-         sbit at 0xA8+7 EA;
+         sbit at (0xA8+0) EX0;
+         sbit at (0xA8+1) ET0;
+         sbit at (0xA8+2) EX1;
+         sbit at (0xA8+3) ET1;
+         sbit at (0xA8+4) ES0;
+         sbit at (0xA8+5) ET2;
+         sbit at (0xA8+6) ES1;
+         sbit at (0xA8+7) EA;
 
 sfr at 0xAA EP2468STAT;
          /* EP2468STAT */
-         //sbit EP2E   = 0xAA+0;
-         //sbit EP2F   = 0xAA+1;
-         //sbit EP4E   = 0xAA+2;
-         //sbit EP4F   = 0xAA+3;
-         //sbit EP6E   = 0xAA+4;
-         //sbit EP6F   = 0xAA+5;
-         //sbit EP8E   = 0xAA+6;
-         //sbit EP8F   = 0xAA+7;
+         //sbit EP2E   = (0xAA+0);
+         //sbit EP2F   = (0xAA+1);
+         //sbit EP4E   = (0xAA+2);
+         //sbit EP4F   = (0xAA+3);
+         //sbit EP6E   = (0xAA+4);
+         //sbit EP6F   = (0xAA+5);
+         //sbit EP8E   = (0xAA+6);
+         //sbit EP8F   = (0xAA+7);
 
 sfr at 0xAB EP24FIFOFLGS;
 sfr at 0xAC EP68FIFOFLGS;
 sfr at 0xAF AUTOPTRSETUP;
             /* AUTOPTRSETUP */
-            sbit at 0xAF+0 EXTACC;
-            sbit at 0xAF+1 APTR1FZ;
-            sbit at 0xAF+2 APTR2FZ;
+            sbit at (0xAF+0) EXTACC;
+            sbit at (0xAF+1) APTR1FZ;
+            sbit at (0xAF+2) APTR2FZ;
 
 sfr at 0xB0 IOD;
 sfr at 0xB1 IOE;
@@ -445,13 +445,13 @@ sfr at 0xB6 OEE;
 
 sfr at 0xB8 IP;
          /*  IP  */
-         sbit at 0xB8+0 PX0;
-         sbit at 0xB8+1 PT0;
-         sbit at 0xB8+2 PX1;
-         sbit at 0xB8+3 PT1;
-         sbit at 0xB8+4 PS0;
-         sbit at 0xB8+5 PT2;
-         sbit at 0xB8+6 PS1;
+         sbit at (0xB8+0) PX0;
+         sbit at (0xB8+1) PT0;
+         sbit at (0xB8+2) PX1;
+         sbit at (0xB8+3) PT1;
+         sbit at (0xB8+4) PS0;
+         sbit at (0xB8+5) PT2;
+         sbit at (0xB8+6) PS1;
 
 sfr at 0xBA EP01STAT;
 sfr at 0xBB GPIFTRIG;
@@ -462,61 +462,61 @@ sfr at 0xBF GPIFSGLDATLNOX;
 
 sfr at 0xC0 SCON1;
          /*  SCON1  */
-         sbit at 0xC0+0 RI1;
-         sbit at 0xC0+1 TI1;
-         sbit at 0xC0+2 RB81;
-         sbit at 0xC0+3 TB81;
-         sbit at 0xC0+4 REN1;
-         sbit at 0xC0+5 SM21;
-         sbit at 0xC0+6 SM11;
-         sbit at 0xC0+7 SM01;
+         sbit at (0xC0+0) RI1;
+         sbit at (0xC0+1) TI1;
+         sbit at (0xC0+2) RB81;
+         sbit at (0xC0+3) TB81;
+         sbit at (0xC0+4) REN1;
+         sbit at (0xC0+5) SM21;
+         sbit at (0xC0+6) SM11;
+         sbit at (0xC0+7) SM01;
 sfr at 0xC1 SBUF1;
 sfr at 0xC8 T2CON;
          /*  T2CON  */
-	 sbit at 0xC8+0 CP_RL2;
-	 sbit at 0xC8+1 C_T2;
-         sbit at 0xC8+2 TR2;
-         sbit at 0xC8+3 EXEN2;
-         sbit at 0xC8+4 TCLK;
-         sbit at 0xC8+5 RCLK;
-         sbit at 0xC8+6 EXF2;
-         sbit at 0xC8+7 TF2;
+	 sbit at (0xC8+0) CP_RL2;
+	 sbit at (0xC8+1) C_T2;
+         sbit at (0xC8+2) TR2;
+         sbit at (0xC8+3) EXEN2;
+         sbit at (0xC8+4) TCLK;
+         sbit at (0xC8+5) RCLK;
+         sbit at (0xC8+6) EXF2;
+         sbit at (0xC8+7) TF2;
 sfr at 0xCA RCAP2L;
 sfr at 0xCB RCAP2H;
 sfr at 0xCC TL2;
 sfr at 0xCD TH2;
 sfr at 0xD0 PSW;
          /*  PSW  */
-         sbit at 0xD0+0 P;
-         sbit at 0xD0+1 FL;
-         sbit at 0xD0+2 OV;
-         sbit at 0xD0+3 RS0;
-         sbit at 0xD0+4 RS1;
-         sbit at 0xD0+5 F0;
-         sbit at 0xD0+6 AC;
-         sbit at 0xD0+7 CY;
+         sbit at (0xD0+0) P;
+         sbit at (0xD0+1) FL;
+         sbit at (0xD0+2) OV;
+         sbit at (0xD0+3) RS0;
+         sbit at (0xD0+4) RS1;
+         sbit at (0xD0+5) F0;
+         sbit at (0xD0+6) AC;
+         sbit at (0xD0+7) CY;
 sfr at 0xD8 EICON; // Was WDCON in DS80C320 EICON; Bit Values differ from Reg320
          /*  EICON  */
-         sbit at 0xD8+3 INT6;
-         sbit at 0xD8+4 RESI;
-         sbit at 0xD8+5 ERESI;
-         sbit at 0xD8+7 SMOD1;
+         sbit at (0xD8+3) INT6;
+         sbit at (0xD8+4) RESI;
+         sbit at (0xD8+5) ERESI;
+         sbit at (0xD8+7) SMOD1;
 sfr at 0xE0 ACC;
 sfr at 0xE8 EIE; // EIE Bit Values differ from Reg320
                         /*  EIE  */
-         sbit at 0xE8+0 EIUSB;
-         sbit at 0xE8+1 EI2C;
-         sbit at 0xE8+2 EIEX4;
-         sbit at 0xE8+3 EIEX5;
-         sbit at 0xE8+4 EIEX6;
+         sbit at (0xE8+0) EIUSB;
+         sbit at (0xE8+1) EI2C;
+         sbit at (0xE8+2) EIEX4;
+         sbit at (0xE8+3) EIEX5;
+         sbit at (0xE8+4) EIEX6;
 sfr at 0xF0 B;
 sfr at 0xF8 EIP; // EIP Bit Values differ from Reg320
                         /*  EIP  */
-         sbit at 0xF8+0 PUSB;
-         sbit at 0xF8+1 PI2C;
-         sbit at 0xF8+2 EIPX4;
-         sbit at 0xF8+3 EIPX5;
-         sbit at 0xF8+4 EIPX6;
+         sbit at (0xF8+0) PUSB;
+         sbit at (0xF8+1) PI2C;
+         sbit at (0xF8+2) EIPX4;
+         sbit at (0xF8+3) EIPX5;
+         sbit at (0xF8+4) EIPX6;
 
 /*-----------------------------------------------------------------------------
    Bit Masks

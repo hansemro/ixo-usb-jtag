@@ -54,7 +54,7 @@
 
 #define HAVE_OE_LED 1
 /* +0=green led, +1=red led */
-sbit at 0x80+1        OELED;
+sbit at (0x80+1)      OELED;
 #define SetOELED(x)   do{OELED=(x);}while(0)
 
 #define JTAG_PORT_OE bmTCK|bmTMS|bmTDI
