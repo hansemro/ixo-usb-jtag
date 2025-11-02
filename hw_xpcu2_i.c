@@ -17,47 +17,51 @@
  *-----------------------------------------------------------------------------
  */
 
+/*
+ * Xilinx Platform Cable II (DLC10): Access internal XC3S200A-FT256-4C FPGA
+ */
+
 #include "hardware.h"
 #include "fx2regs.h"
 #include "syncdelay.h"
 
 //---------------------------------------------------------------------------
 
-#define JTAG_PORT IOE
-
 #define SetOrClear(port, mask, input) \
   ((input) ? (port|=mask) : (port&=~mask))
 
-//#define SetTCK(x)     do{if(x) IOE|=0x08; else IOE&=~0x08; }while(0)
-#define bmTCK bmBIT3 // Output
-#define SetTCK(x)     SetOrClear(JTAG_PORT, bmTCK, x)
+// PB7 -> tristate buffer -> FPGA_TCK
+#define bmTCK bmBIT7 // Output
+#define SetTCK(x)     SetOrClear(IOB, bmTCK, x)
 
-//#define SetTMS(x)     do{if(x) IOE|=0x10; else IOE&=~0x10; }while(0)
+// PB4 -> FPGA_TMS
 #define bmTMS bmBIT4 // Output
-#define SetTMS(x)     SetOrClear(JTAG_PORT, bmTMS, x)
+#define SetTMS(x)     SetOrClear(IOB, bmTMS, x)
 
-//#define SetTDI(x)     do{if(x) IOE|=0x40; else IOE&=~0x40; }while(0)
-#define bmTDI bmBIT6 // Output - Data from FX2 into FPGA
-#define SetTDI(x)     SetOrClear(JTAG_PORT, bmTDI, x)
+// PB0 -> FPGA_TDI
+#define bmTDI bmBIT0 // Output - Data from FX2 into FPGA
+#define SetTDI(x)     SetOrClear(IOB, bmTDI, x)
 
-//#define GetTDO()      ((IOE>>5)&1)
-#define bmTDO bmBIT5 // Input - Data from FPGA into FX2
-#define bitTDO 5
+// PC6 <- FPGA_TDO
+#define bmTDO bmBIT6 // Input - Data from FPGA into FX2
+#define bitTDO 6
 
 #define GetTDO()      GetTDOToBit(0)
 #define GetTDOToBit(bitPos) \
  (((int)(bitTDO-bitPos) > (int)0) ? \
-   ((JTAG_PORT & bmTDO)>>(bitTDO-bitPos)) : \
-   ((JTAG_PORT & bmTDO)<<(bitPos-bitTDO)) ) \
+   ((IOC & bmTDO)>>(bitTDO-bitPos)) : \
+   ((IOC & bmTDO)<<(bitPos-bitTDO)) ) \
 
-/* XPCU has neither AS nor PS mode pins */
+// CTL2 -> active-high output enable for FPGA_TCK
+#define bmTCK_OE bmBIT2
 
-#define HAVE_OE_LED 1
-/* +0=green led, +1=red led */
-sbit at (0x80+1)      OELED;
-#define SetOELED(x)   do{OELED=(x);}while(0)
+// PC7 -> MAX6412 active-low Manual Reset (MR) -> FPGA_PROG_B
+#define bmFPGA_RESET bmBIT7
 
-#define JTAG_PORT_OE bmTCK|bmTMS|bmTDI
+// PE6 -> active-high FPGA power enable
+#define bmFPGA_POWER bmBIT6
+
+/* XPCU2 has neither AS nor PS mode pins */
 
 //-----------------------------------------------------------------------------
 
@@ -77,11 +81,15 @@ void ProgIO_Init(void)
   // Use internal 48 MHz, enable output, use "Port" mode for all pins
   IFCONFIG = bmIFCLKSRC | bm3048MHZ | bmIFCLKOE;
 
+  GPIFCTLCFG = 0x00;
+  GPIFIDLECTL = bmTCK_OE;
   GPIFABORT = 0xFF;
 
-  PORTACFG = 0x00; OEA = 0x03; IOA=0x01;
-  PORTCCFG = 0x00; OEC = 0x00; IOC=0x00;
-  PORTECFG = 0x00; OEE = JTAG_PORT_OE; IOE=0x00;
+  PORTACFG = 0x00; OEA = 0x00; IOA = 0x00;
+  OEB = bmTCK | bmTMS | bmTDI; IOB = 0x00;
+  PORTCCFG = 0x00; OEC = bmFPGA_RESET; IOC = bmFPGA_RESET;
+  OED = 0x00;
+  PORTECFG = 0x00; OEE = bmFPGA_POWER; IOE = bmFPGA_POWER;
 }
 
 void ProgIO_Set_State(unsigned char d)
