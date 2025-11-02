@@ -23,7 +23,7 @@ SHELL := /bin/bash
 
 # Specify a list of targets to build. Each target requires a hw_$target.c file
 # to be present, and will produce a usbjtag-$target.hex output file.
-TARGETS=basic dj_usb saxo_l xpcu_i xpcu_x nexys opsis nanodla
+TARGETS=basic dj_usb saxo_l xpcu_i xpcu_x xpcu2_i nexys opsis nanodla
 
 HEX_OUTPUTS=$(TARGETS:%=usbjtag-%.hex)
 
